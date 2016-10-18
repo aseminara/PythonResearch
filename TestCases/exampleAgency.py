@@ -1,8 +1,9 @@
 from selenium import webdriver
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from training.Settings import Environment
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.ui import WebDriverWait
+
+from Settings.Environment import *
 
 environment = Environment()
 caps = DesiredCapabilities.FIREFOX
@@ -15,14 +16,22 @@ assert "Use Java Version" in driver.page_source
 contactElem = driver.find_element_by_link_text("CONTACT")
 contactElem.click()
 
-#Hasta aca vamos bien
 try:
     element = WebDriverWait(driver,10)
     element.until(expected_conditions.alert_is_present())
+    #element.until(expected_conditions.presence_of_element_located("//a[@href='mercurywelcome.php']"))
 except:
-    print("An error")
-#assert "Sorry         for any inconvienece." in driver.page_source
-backButton = driver.find_element_by_xpath("html/body/div/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr[1]/t[2]/table/tbody/tr[4]/td/a/img")
+    print("There was a problem loading page")
+#driver.implicitly_wait(10)
+#assert 'Sorry' in driver.page_source
+backButton = driver.find_element_by_xpath("//a[@href='mercurywelcome.php']")
 backButton.click()
-assert "use Java Version" in driver.page_source
+
+try:
+    javaU = driver.find_element_by_xpath("//u[contains(text(),'Use Java Version')]")
+    assert True
+except:
+    assert False
+
+
 driver.close()
