@@ -1,15 +1,16 @@
 import unittest
 from Pablo.Settings.Driver import *
 from Pablo.Settings.Environment import *
+from Pablo.Settings.DriverExtender import *
 from Pablo.Pages.HomePage import *
 from Pablo.Pages.SignOnPage import *
 
 class TestCases(unittest.TestCase):
 
     def setUp(self):
-        self.myDriver = Driver()
+        self.myDriver = Driver().getdriver()
         environment = Environment()
-        self.myDriver.driver.get(environment.url)
+        self.myDriver.get(environment.url)
 
     def test_incorrectlogin(self):
         home = Home(self.myDriver)
@@ -19,7 +20,8 @@ class TestCases(unittest.TestCase):
         self.assertTrue(signOn.verifyLogOnImage())
 
     def tearDown(self):
-        self.myDriver.closedriver()
+        driverExtender = DriverExtender(self.myDriver)
+        driverExtender.closeDriver()
 
 if __name__ == "__main__":
     unittest.main()

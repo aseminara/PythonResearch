@@ -5,10 +5,10 @@ NewTours_TCs:
 3. Log in Failure (Wrong password) (Eric)
 4. Log in Failure (blank username) (Pablo)
 5. Log in Failure (blank password) (Andy)
-6. Round trip
-7. One way
-8. Select flight Round trip
-9. Select flight One way
+6. Round trip (Franco)
+7. One way (Charly)
+8. Select flight Round trip (Eric)
+9. Select flight One way (Pablo)
 10. Book a flight (HP)
 11. Book a flight (First name empty)
 12. Book a flight (Last name empty) 
