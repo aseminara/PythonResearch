@@ -32,6 +32,14 @@ class TestCases(unittest.TestCase):
         flightFinder.clickFindFlight()
         selectFlight.verifySelectFlightBanner()
 
+    def test_validateRoundTrip(self):
+        home = Home(self.myDriver)
+        flightFinder = FlightFinder(self.myDriver)
+        home.setusername("demo")
+        home.setpassword("demo")
+        home.clicklogin()
+        flightFinder.clickFindFlight()
+        
     def tearDown(self):
         driverExtender = DriverExtender(self.myDriver)
         driverExtender.closeDriver()
