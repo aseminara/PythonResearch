@@ -9,16 +9,16 @@ NewTours_TCs:
 7. One way (Charly)
 8. Select flight Round trip (Eric)
 9. Select flight One way (Pablo)
-10. Book a flight (HP)
-11. Book a flight (First name empty)
-12. Book a flight (Last name empty) 
-13. Book a flight (Number field empty)
-14. Validate Round trip flight data (Departing airport)
-15. Validate Round trip flight data (Returning airport)
-16. Validate One way trip flight data (Departing airport)
-17. Validate One way trip flight data (Returning airport)
-18. Sign-off
-19. Register
-20. Support
+10. Book a flight (HP)(Andy)
+11. Book a flight (First name empty)(Franco)
+12. Book a flight (Last name empty) (Charly)
+13. Book a flight (Number field empty)(Eric)
+14. Validate Round trip flight data (Departing airport)(Pablo)
+15. Validate Round trip flight data (Returning airport)(Andy)
+16. Validate One way trip flight data (Departing airport)(Franco)
+17. Validate One way trip flight data (Returning airport)(Charly)
+18. Sign-off(Eric)
+19. Register (Pablo)
+20. Support (Andy)
 
 Test

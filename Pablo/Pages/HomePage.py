@@ -1,9 +1,11 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from Pablo.Settings.DriverExtender import *
 
 class Home:
     def __init__(self,driver):
         self.myDriver = driver
+        self.driverExtender = DriverExtender(self.myDriver)
         self.contactElemLink="CONTACT"
         self.javatextXpath="//u[contains(text(),'Use Java Version')]"
         self.userNameName = "userName"
@@ -29,3 +31,4 @@ class Home:
 
     def clicklogin(self):
         self.myDriver.find_element(By.NAME,self.loginButtonName).click()
+        self.driverExtender.waitForDom()

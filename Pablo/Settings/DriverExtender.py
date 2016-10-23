@@ -15,9 +15,11 @@ class DriverExtender:
             "name":By.NAME,
             "css":By.CSS_SELECTOR,
         }
-        #self.myDriver.implicitly_wait(10)
         try:
             WebDriverWait(self.myDriver, 10).until(expected_conditions.presence_of_element_located((switcher.get(typeofelement.lower()), element)))
             return True
         except:
             return False
+
+    def waitForDom(self):
+        self.myDriver.implicitly_wait(10)
