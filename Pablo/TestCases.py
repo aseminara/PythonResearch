@@ -6,6 +6,9 @@ from Pablo.Pages.HomePage import *
 from Pablo.Pages.SignOnPage import *
 from Pablo.Pages.FlightFinderPage import *
 from Pablo.Pages.SelectFlightPage import *
+from Pablo.Pages.ReservationPage import *
+from Pablo.Pages.RegistrationPage import *
+from Pablo.Pages.CommonPage import *
 
 class TestCases(unittest.TestCase):
 
@@ -34,12 +37,21 @@ class TestCases(unittest.TestCase):
 
     def test_validateRoundTrip(self):
         home = Home(self.myDriver)
+        reservation = Reservation(self.myDriver)
         flightFinder = FlightFinder(self.myDriver)
         home.setusername("demo")
         home.setpassword("demo")
         home.clicklogin()
+        flightFinder.selectdepartingFromOption('New York')
         flightFinder.clickFindFlight()
-        
+        reservation.continueButtonName()
+
+    def test_register(self):
+        common = Common(self.myDriver)
+        register = Register(self.myDriver)
+        common.clickRegister()
+        register.addUserName("Pepe") #TODO: QUit hardcode here
+
     def tearDown(self):
         driverExtender = DriverExtender(self.myDriver)
         driverExtender.closeDriver()
